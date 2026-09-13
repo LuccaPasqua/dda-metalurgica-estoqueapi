@@ -2,67 +2,72 @@ package br.org.sesisenai.estoqueapi.entity;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name="manufacturer")
 public class Manufacturer {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Long IdManufactured;
+    private Long id;
 
     @Column(nullable = false)
-    private String nameManufacturer;
+    private String name;
 
     @Column(nullable = true)
-    private String documentManufacturer;
+    private String document;
 
     @Column(nullable = true)
-    private String contactManufacturer;
+    private String contact;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private Date createdAtManufacturer;
+    private Date createdAt;
 
-    public Long getIdManufactured() {
-        return IdManufactured;
+    public Manufacturer() {
     }
 
-    public void setIdManufactured(Long idManufactured) {
-        IdManufactured = idManufactured;
+    public Long getId() {
+        return id;
     }
 
-    public String getNameManufacturer() {
-        return nameManufacturer;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setNameManufacturer(String nameManufacturer) {
-        this.nameManufacturer = nameManufacturer;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public String getDocumentManufacturer() {
-        return documentManufacturer;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public void setDocumentManufacturer(String documentManufacturer) {
-        this.documentManufacturer = documentManufacturer;
+    public String getContact() {
+        return contact;
     }
 
-    public String getContactManufacturer() {
-        return contactManufacturer;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public void setContactManufacturer(String contactManufacturer) {
-        this.contactManufacturer = contactManufacturer;
+    public String getDocument() {
+        return document;
     }
 
-    public Date getCreatedAtManufacturer() {
-        return createdAtManufacturer;
+    public void setDocument(String document) {
+        this.document = document;
     }
 
-    public void setCreatedAtManufacturer(Date createdAtManufacturer) {
-        this.createdAtManufacturer = createdAtManufacturer;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
