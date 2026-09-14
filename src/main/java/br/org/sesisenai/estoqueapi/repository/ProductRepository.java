@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.List;
 
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findByCode(String code);
