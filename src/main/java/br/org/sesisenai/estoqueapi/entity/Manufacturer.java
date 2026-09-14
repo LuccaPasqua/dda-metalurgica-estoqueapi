@@ -4,21 +4,21 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name="supplier")
-public class Supplier {
+@Table(name="manufacturer")
+public class Manufacturer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = true, unique = true)
+    @Column(nullable = true)
     private String document;
 
     @Column(nullable = true)
@@ -26,9 +26,9 @@ public class Supplier {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
-    public Supplier() {
+    public Manufacturer() {
     }
 
     public Long getId() {
@@ -39,20 +39,12 @@ public class Supplier {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDocument() {
-        return document;
-    }
-
-    public void setDocument(String document) {
-        this.document = document;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getContact() {
@@ -63,11 +55,19 @@ public class Supplier {
         this.contact = contact;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public String getDocument() {
+        return document;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setDocument(String document) {
+        this.document = document;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
