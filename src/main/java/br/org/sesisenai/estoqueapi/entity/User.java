@@ -1,5 +1,6 @@
 package br.org.sesisenai.estoqueapi.entity;
 
+import br.org.sesisenai.estoqueapi.enums.RoleUser;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -10,12 +11,6 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @Table(name="users")
 public class User {
-
-    public enum UserRole{
-        ADMIN,
-        MANAGER,
-        OPERATOR
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +28,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserRole role;
+    private RoleUser role;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -59,11 +54,11 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public UserRole getRole() {
+    public RoleUser getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(RoleUser role) {
         this.role = role;
     }
 
