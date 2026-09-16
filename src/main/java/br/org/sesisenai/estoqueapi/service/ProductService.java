@@ -115,6 +115,7 @@ public class ProductService {
         if(!stockMovementRepository.findByProductIdOrderByCreatedAtDesc(id).isEmpty()){
             throw new IllegalArgumentException("Não é possível excluir o produto id: "+ id +". Existe um movimento no estoque com esse produto");
         }
+        productRepository.delete(product);
 
     }
 
