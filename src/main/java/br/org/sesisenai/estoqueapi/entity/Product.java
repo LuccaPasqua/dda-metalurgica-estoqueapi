@@ -27,7 +27,7 @@ public class Product {
     private String description;
 
     @Column(nullable = false, unique = true)
-    private String codeProduct;
+    private String code;
 
     @Column(nullable = false)
     private String unitOfMeasurement;
@@ -78,12 +78,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getCodeProduct() {
-        return codeProduct;
+    public String getCode() {
+        return code;
     }
 
-    public void setCodeProduct(String codeProduct) {
-        this.codeProduct = codeProduct;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getUnitOfMeasurement() {

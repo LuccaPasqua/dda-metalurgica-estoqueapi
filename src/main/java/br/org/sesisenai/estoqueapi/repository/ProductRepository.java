@@ -14,7 +14,10 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findByCode(String code);
 
-    List<Product> findAllByOrderByNameAsc();
+//    List<Product> findAllByOrderByNameAsc();
+
+    List<Product> findAllByOrderByCreatedAd();
+
 
     List<Product> findAllByManufacturerId(Long manufacturerId);
 
